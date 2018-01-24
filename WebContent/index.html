@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<title>词频分析</title>
+		<meta name="description" content="Worthy a Bootstrap-based, Responsive HTML5 Template">
+		<meta name="author" content="htmlcoder.me">
+		<!-- Mobile Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="images/favicon.ico">
+		<!-- Web Fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+		<!-- Bootstrap core CSS -->
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+		<!-- Font Awesome CSS -->
+		<link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+		<!-- Plugins -->
+	    <link href="css/animations.css" rel="stylesheet">
+		<!-- Worthy core CSS file -->
+		<link href="css/style.css" rel="stylesheet">
+		<!-- Custom css --> 
+		<link href="css/custom.css" rel="stylesheet">	
+		<link rel="stylesheet" href="styles/codemirror.css">   
+        <link rel="stylesheet" href="styles/codemirror-neo.css">    
+        <link rel="stylesheet" href="styles/cy2neo.css">  
+        <link rel="stylesheet" href="styles/neod3.css">       
+        <link rel="stylesheet" href="styles/datatable.css">     
+        <link rel="stylesheet" href="styles/vendor.css"> <!-- bootstrap-->    
+        <link rel="stylesheet" href="styles/sweet-alert.css">       
+        <link rel="stylesheet" href="styles/gh-fork-ribbon.css">      
+        <link rel="stylesheet" href="css/bootstrap.css">
+	</head>
+
+	<body class="no-trans">
+		<!-- scrollToTop -->
+		<!-- ================ -->
+		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
+
+
+		<!-- header start -->
+		<!-- ================ --> 
+		<header class="header fixed clearfix navbar navbar-fixed-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<!-- header-left start -->
+						<!-- ================ -->
+						<div class="header-left clearfix">
+							<!-- logo -->
+							<div class="logo smooth-scroll">
+								<a href="#banner"><img id="logo" src="images/logo.png" alt="Worthy"></a>
+							</div>
+							<!-- name-and-slogan -->
+							<div class="site-name-and-slogan smooth-scroll">
+								<div class="site-name"><a href="#banner">北师大</a></div>
+								<div class="site-slogan">词频分析 </div>
+							</div>
+						</div>
+						<!-- header-left end -->
+					</div>
+					<div class="col-md-8">
+						<!-- header-right start -->
+						<!-- ================ -->
+						<div class="header-right clearfix">
+							<!-- main-navigation start -->
+							<!-- ================ -->
+							<div class="main-navigation animated">
+								<!-- navbar start -->
+								<!-- ================ -->
+								<nav class="navbar navbar-default" role="navigation">
+									<div class="container-fluid">
+										<!-- Toggle get grouped for better mobile display -->
+										<div class="navbar-header">
+											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+												<span class="sr-only">Toggle navigation</span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+											</button>
+										</div>
+										<!-- Collect the nav links, forms, and other content for toggling -->
+										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
+											<ul class="nav navbar-nav navbar-right">
+												<li class="active"><a href="#banner">Home</a></li>
+												<li><a href="#case1">分析一</a></li>
+												<li><a href="#case2">分析二</a></li>
+												<li><a href="#case3">分析三</a></li>
+												<li><a href="#graph" title="Execute" id="execute" onclick="changeselect('s')">图示</a></li>		
+											</ul>
+										</div>
+									</div>
+								</nav>
+								<!-- navbar end -->
+							</div>
+							<!-- main-navigation end -->
+						</div>
+						<!-- header-right end -->
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- header end -->
+
+
+		<!-- banner start -->
+		<!-- ================ -->
+		<div id="banner" class="banner">
+			<div class="banner-image"></div>
+			<div class="banner-caption">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 object-non-visible" data-animation-effect="fadeIn">
+							<h1 class="text-center"><span>词频分析</span></h1>
+							<p class="lead text-center">使用说明</p>
+							<p>根据导航栏中的分析类型选择所需的分析类型，输入分析条件后，点击生成查询，然后选择导航栏右侧的图示就可以看到对应的分析结果。</p>
+	                        <p>同现阈值：对核心词与其相关词语可视化时，两词同现次数的最低值设置</p>
+	                        <p>词频阈值：对核心词与其相关词语可视化时，相关词语单独出现的次数最低值设置</p>					
+						</div>				
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- banner end -->
+
+      
+
+
+		<!-- section start -->
+		<!-- ================ -->
+		<div class="section clearfix object-non-visible" data-animation-effect="fadeIn">
+		<h2 id="case1"  class="text-center title">分析一:<span>双核心词简单分析</span></h2>
+			<div class="container" >
+                <div class="space"></div>
+                <form>
+                 <div class="row"> 
+                 <div class="col-md-2">
+                  <select   id="select1" class="form-control">
+                     <option value="国学公众号1231">国学公众号1231</option>
+                     <option value="国学公众号1020">国学公众号1020</option>
+                     <option value="人际伦理">人际伦理</option>
+                     <option value="企业伦理">企业伦理</option>
+                     <option value="健康伦理">其他伦理</option>
+                     <option value="家庭伦理">家庭伦理</option>
+                     <option value="市场伦理">市场伦理</option>
+                     <option value="环境伦理">环境伦理</option>
+                     <option value="网络伦理">网络伦理</option>
+                     <option value="职业伦理">职业伦理</option>
+                     <option value="行政伦理">行政伦理</option>
+                  </select>
+                  </div>
+	             <div class="col-md-2"><div class="input-group"><span class="input-group-addon">核心词一</span><input class="form-control"  id="1coreword" value="庄子"></input></div></div>
+	             <div class="col-md-2"><div class="input-group"><span class="input-group-addon">核心词二</span><input class="form-control"  id="2coreword" value="孔子"></input></div></div>
+	             <div class="col-md-2"><input type="button" class="btn btn-info" id="button1" onclick="query1()" value="生成查询"/></div>
+                 </div>
+                 </form>      
+                 <div class="space"></div>  
+             </div>
+          </div>
+		<!-- section end -->
+
+
+
+		<!-- section 2 start -->
+		<!-- ================ -->
+    <div class="section translucent-bg bg-image-1 black">
+	   <div class="container object-non-visible" data-animation-effect="fadeIn">
+		<h2 id="case2"  class="text-center title">分析二:<span>单核心词分析</span></h2>
+			<div class="container" >
+			   <form>
+                 <div class="row">
+                 <div class="col-md-2">
+	                
+                 </div>
+                 <div class="col-md-1">      
+                 </div> 
+                 </div>
+                </form>
+                <div class="space"></div>
+         <form>
+         <div class="row"> 
+         <div class="col-md-2">
+               <select   id="select2" class="form-control">
+                     <option value="国学公众号1231">国学公众号1231</option>
+                     <option value="国学公众号1020">国学公众号1020</option>
+                     <option value="人际伦理">人际伦理</option>
+                     <option value="企业伦理">企业伦理</option>
+                     <option value="健康伦理">其他伦理</option>
+                     <option value="家庭伦理">家庭伦理</option>
+                     <option value="市场伦理">市场伦理</option>
+                     <option value="环境伦理">环境伦理</option>
+                     <option value="网络伦理">网络伦理</option>
+                     <option value="职业伦理">职业伦理</option>
+                     <option value="行政伦理">行政伦理</option>
+              </select>
+         </div>
+	     <div class="col-md-2"><div class="input-group"><span class="input-group-addon">核心词语</span><input class="form-control"  id="coreword" value="庄子"></input></div></div>
+	     <div class="col-md-2"><div class="input-group"><span class="input-group-addon">同现阈值</span><input class="form-control"  id="wvalue11" value="1"></input></div></div>	     
+	     <div class="col-md-2"><div class="input-group"><span class="input-group-addon">词频阈值</span><input class="form-control"  id="stword" value="10"></input></div></div>
+         <div class="col-md-2">
+	     <select   id="entitytype" class="form-control">
+           <option value="0">所有类型</option>
+           <option value="名词">名词</option>
+           <option value="动词">动词</option>
+           <option value="人名">人名</option>
+           <option value="地名">地名</option>
+           <option value="形容词">形容词</option>
+           <option value="机构名">机构名</option>
+          </select>
+         </div>
+         <div class="col-md-1"><button type="button" class="btn btn-info" onclick="query2()">生成查询</button></div>
+        </div>
+       </form>
+         <div class="space"></div>  
+  </div>
+  </div>
+ </div>
+		<!-- section2 end -->
+
+
+
+		<!-- section start -->
+		<!-- ================ -->
+		<div class="section clearfix object-non-visible" data-animation-effect="fadeIn">
+		<h2 id="case3"  class="text-center title">分析三:<span>双核心词有条件分析</span></h2>
+			<div class="container" >
+                <div class="space"></div>
+              <form>
+        <div class="row">
+        <div class="col-md-2">
+                  <select   id="select3" class="form-control">
+                     <option value="国学公众号1231">国学公众号1231</option>
+                     <option value="国学公众号1020">北京公众号1020</option>
+                     <option value="人际伦理">人际伦理</option>
+                     <option value="企业伦理">企业伦理</option>
+                     <option value="健康伦理">其他伦理</option>
+                     <option value="家庭伦理">家庭伦理</option>
+                     <option value="市场伦理">市场伦理</option>
+                     <option value="环境伦理">环境伦理</option>
+                     <option value="网络伦理">网络伦理</option>
+                     <option value="职业伦理">职业伦理</option>
+                     <option value="行政伦理">行政伦理</option>
+                  </select>
+                  </div>   
+	    <div class="col-md-2"><div class="input-group"><span class="input-group-addon">核心词一</span><input class="form-control" type="input" id="coreword1" value="庄子"></input></div></div>
+	    <div class="col-md-2"><div class="input-group"><span class="input-group-addon">同现阈值1</span><input class="form-control" type="input" id="wvalue1" value="1"></input></div></div>
+        </div>
+        </div>
+        </form> 
+        <div class="space"></div>      
+        <form>
+        <div class="row">
+	    <div class="col-md-2 col-md-offset-1"><div class="input-group"><span class="input-group-addon">核心词二</span><input class="form-control" type="input" id="coreword2" value="孩子"></input></div></div>
+	    <div class="col-md-2"><div class="input-group"><span class="input-group-addon">同现阈值2</span><input class="form-control" type="input" id="wvalue2" value="1"></input></div></div>
+     	<div class="col-md-2"><div class="input-group"><span class="input-group-addon">词频阈值</span><input class="form-control" type="input" id="stword1" value="1"></input></div></div>
+        <div class="col-md-2">
+	     <select   id="entitytype2" class="form-control">
+          <option value="0">所有类型</option>
+          <option value="名词">名词</option>
+          <option value="动词">动词</option>
+          <option value="人名">人名</option>
+          <option value="地名">地名</option>
+          <option value="形容词">形容词</option>
+          <option value="机构名">机构名</option>
+         </select>
+        </div>
+        <div class="col-md-1"><input type="button" class="btn btn-info" onclick="query3()" value="生成查询"></input></div>
+        </div>
+        </div>
+       </form>
+                 <div class="space"></div>  
+             </div>
+          </div>
+		<!-- section end -->
+         
+         
+		<script src="scripts/codemirror.js"></script>
+        <script src="scripts/codemirror-cypher.js"></script>
+        <script src="scripts/vendor.js"></script>
+        <script src="scripts/cypher.datatable.js"></script>
+        <script src="scripts/sweet-alert.min.js"></script>
+        <script src="scripts/neod3-visualization.js"></script>
+        <script src="scripts/neo4d3.js"></script>
+        <script src="scripts/jquery.dataTables.min.js"></script>
+        <script src="scripts/cy2neod3.js"></script>
+        <script src="scripts/neod3.js"></script>
+
+
+
+
+      <!--section graph start-->
+	  <div role="tabpanel">
+        <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+             <li role="presentation" class="active"><a href="#graph" aria-controls="home" role="tab" data-toggle="tab">Graph</a></li>
+             <li role="presentation"><a href="#table" aria-controls="table" role="tab" data-toggle="tab">Table</a></li>
+            </ul>
+        <!-- Tab panes -->
+        <div class="tab-content" style="height: 600px">
+            <div role="tabpanel" class="tab-pane active" id="graph" style="height: 600px">
+    	     <div class="tab-pane active" id="graph" style="height: 600px">&nbsp;</div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="table">
+    	     <div id="datatable" style="height: 600px"></div>
+            </div>
+        </div>
+      </div>
+      <!-- section graph end -->
+
+
+      <script type="text/javascript">
+        var searchword="";
+        searchword="";
+        function query1()
+        {
+       	  var ocoreword=document.getElementById("1coreword").value;
+       	  var tcoreword=document.getElementById("2coreword").value;
+       	  var select1 = $("#select1").find("option:selected").attr("value");
+       	  searchword="MATCH p=(word1)-[r]-(word2) WHERE word1.name='"+ocoreword+"' and word2.name='"+tcoreword+"' and word1.source='"+select1+"' and word2.source='"+select1+"' RETURN p";
+       	  if(ocoreword==""||tcoreword=="")
+       	  {
+       		  sweetAlert("请确保信息填写完整");
+       	  }
+         }
+        
+        
+         function query2()
+         {
+       	   var coreword=document.getElementById("coreword").value;
+           var wvalue11=document.getElementById("wvalue11").value;
+           var stword=document.getElementById("stword").value;
+           var select2 = $("#select2").find("option:selected").attr("value");
+           var entitytype=$("#entitytype").find("option:selected").attr("value");
+           searchword1="MATCH p=(word1)-[r]-(word2) WHERE r.count>"+wvalue11+" and word1.name='"+coreword+"' and word2.frequency>"+stword+" and word1.source='"+select2+"' and word2.source='"+select2+"' RETURN p";
+           searchword2="MATCH p=(word1)-[r]-(word2:`"+entitytype+"`) WHERE r.count>"+wvalue11+" and word1.name='"+coreword+"' and word2.frequency>"+stword+" and word1.source='"+select2+"' and word2.source='"+select2+"' RETURN p";
+           if(document.getElementById("entitytype").value==0)
+           {
+           	 searchword=searchword1;
+           }
+           else
+           	searchword=searchword2;
+            if(coreword==""||wvalue11==""||stword=="")
+            {
+           	 sweetAlert("请确保信息填写完整");
+            }
+          }
+        
+         function query3()
+         {
+       	   var coreword1=document.getElementById("coreword1").value;
+           var wvalue1=document.getElementById("wvalue1").value;
+           var stword1=document.getElementById("stword1").value;
+           var coreword2=document.getElementById("coreword2").value;
+           var wvalue2=document.getElementById("wvalue2").value;
+           var select3 = $("#select3").find("option:selected").attr("value");
+           var entitytype2=$("#entitytype2").find("option:selected").attr("value");
+           if(document.getElementById("entitytype2").value==0)
+             searchword="MATCH p=(word1)-[r1]-(word2)-[r2:`-`]-(word3) WHERE r1.count>"+wvalue1+" and r2.count>"+wvalue2+" and word1.name='"+coreword1+"' and word3.name='"+coreword2+"' and word2.frequency>"+stword1+" and word1.source='"+select3+"' and word2.source='"+select3+"' and word3.source='"+select3+"' RETURN p";
+           else
+           	 searchword="MATCH p=(word1)-[r1]-(word2:`"+entitytype2+"`)-[r2:`-`]-(word3) WHERE r1.count>"+wvalue1+" and r2.count>"+wvalue2+" and word1.name='"+coreword1+"' and word3.name='"+coreword2+"' and word2.frequency>"+stword1+" and word1.source='"+select3+"' and word2.source='"+select3+"' and word3.source='"+select3+"' RETURN p";
+           if(coreword1==""||wvalue1==""||stword1==""||coreword2==""||wvalue2=="")
+            {
+           	 sweetAlert("请确保信息填写完整");
+            }
+         }
+
+          function changeselect(s){
+            $(function() {
+       		//todo dynamic configuration
+       		var config = {}
+       	    var connection = function() { return {url:"http://172.16.216.209:7575", user:"neo4j",pass:"bnuneo4j"}; }
+       		new Cy2NeoD3(config,"graph","datatable",searchword, connection , true);
+       	  });
+         }  
+        </script> 
+        
+               
+		<!-- JavaScript files placed at the end of the document so the pages load faster
+		================================================== -->
+		<!-- Jquery and Bootstap core js files -->
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- Modernizr javascript -->
+		<script type="text/javascript" src="plugins/modernizr.js"></script>
+		<!-- Isotope javascript -->
+		<script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>		
+		<!-- Backstretch javascript -->
+		<script type="text/javascript" src="plugins/jquery.backstretch.min.js"></script>
+		<!-- Appear javascript -->
+		<script type="text/javascript" src="plugins/jquery.appear.js"></script>
+		<!-- Initialization of Plugins -->
+		<script type="text/javascript" src="js/template.js"></script>
+		<!-- Custom Scripts -->
+		<script type="text/javascript" src="js/custom.js"></script>
+	</body>
+</html>
